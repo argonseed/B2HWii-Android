@@ -143,7 +143,7 @@ void PinHelpers() {
         if (value != nullptr && std::strcmp(value, "fast") == 0) {
             return true;
         }
-        return android_get_device_api_level() < 30 && CPU_COUNT(&g_pinMask) >= 4;
+        return CPU_COUNT(&g_pinMask) >= 4;
     }();
     if (!s_enabled || CPU_COUNT(&others) == 0) {
         return;
