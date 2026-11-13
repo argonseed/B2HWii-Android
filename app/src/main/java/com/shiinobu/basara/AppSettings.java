@@ -15,7 +15,7 @@ final class AppSettings {
     static final int GPU_COMPAT_OFF = 2;
 
     /** Render scales offered in the menu; 1x renders 480 lines, whatever the aspect; 0 the screen's own. */
-    static final float[] RESOLUTION_SCALES = {0f, 0.5f, 0.75f, 1f, 1.5f, 2f, 3f, 4f};
+    static final float[] RESOLUTION_SCALES = {0f, 0.5f, 0.75f, 1f, 1.5f, 1.75f, 1.8f, 2f, 2.5f, 3f, 4f};
 
     private static final String FILE = "settings";
     private final SharedPreferences prefs;
