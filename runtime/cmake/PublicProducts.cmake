@@ -387,7 +387,7 @@ elseif(MKW_PLATFORM_ANDROID)
     # Cortex-A73/A53 (Snapdragon 662/665/460, Helio G80/G85...) are still common and an ARMv8.2
     # build dies there with SIGILL on the first LSE atomic (Poco M3). Outline atomics still use LSE
     # where the CPU has it (checked once at load).
-    set(MKW_BASELINE_ARCH_FLAG -march=armv8-a -moutline-atomics)
+    set(MKW_BASELINE_ARCH_FLAG -mcpu=cortex-a78)
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
     set(MKW_BASELINE_ARCH_FLAG -mcpu=native)
 else()
@@ -410,7 +410,7 @@ endforeach()
 set(MKW_PGO "off" CACHE STRING "Profile-guided optimization: off, generate or use")
 set_property(CACHE MKW_PGO PROPERTY STRINGS off generate use)
 set(MKW_PGO_PROFILE "" CACHE FILEPATH "Merged .profdata for MKW_PGO=use")
-option(MKW_THINLTO "ThinLTO across the translated code and the runtime" OFF)
+option(MKW_THINLTO "ThinLTO across the translated code and the runtime" ON)
 # With a profile: cold blocks split out of hot functions (.text.split) and the linker keeps the
 # hot/unlikely/split prefixes as their own groups, so a battle's code sits in a few MB of the
 # ~100 MB library instead of spread over all of it (fewer i-cache and iTLB misses).
