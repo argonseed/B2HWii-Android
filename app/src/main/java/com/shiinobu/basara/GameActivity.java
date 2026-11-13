@@ -230,6 +230,7 @@ public final class GameActivity extends SDLActivity
             // the fastest cores and no ADPF boost is asked for (runtime/src/cpu_boost.cpp). env.txt wins.
             appliedSustained = sustainedMode();
             if (appliedSustained) Os.setenv("BASARA_CPU_BOOST", "0", false);
+                Os.setenv("BASARA_CPU_HELPERS", "fast", false);
             if (settings.recordingAudio()) Os.setenv("BASARA_AUDIO_RECORDABLE", "1", false);
             // Low RAM (ARMSX2 caps its texture pools on weak phones): a smaller cache for replaced textures.
             final long ram = DeviceProfile.ramMb(this);
